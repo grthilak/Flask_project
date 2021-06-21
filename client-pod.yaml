@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  container:
+    - name: client
+      image: grthilak/flask_app
+      port:
+        -containerPort: 5000

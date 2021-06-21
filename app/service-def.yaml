@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: nodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30004
+  selector:
+    app: myapp
+    type: front-end
+
+kubectl create -f service-def.yaml
+kubectl update -f service-def.yaml
+kubectl replace -f service-def.yaml
+curl http:/192.168.1.2:30004
+
+kubectl apply -f service-def.yaml
